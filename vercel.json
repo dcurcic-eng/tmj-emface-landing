@@ -1,6 +1,6 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/tmj.html" }
+  "routes": [
+    { "src": "/", "dest": "/tmj.html" },
+    { "handle": "filesystem" }
   ]
 }
