@@ -1198,6 +1198,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; } /* no italic in headings */
   .fade-in, .fade-left, .fade-right,
   .stagger-tight > *, .stagger-loose > *,
   .hero-seq > * { opacity: 1 !important; transform: none !important; }
+  .fade-in, .fade-left, .fade-right, .stagger-tight, .stagger-loose { opacity: 1 !important; transform: none !important; }
 }
 
 /* ── RESPONSIVE ── */
@@ -1757,6 +1758,12 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll(revealSelector).forEach(el => observer.observe(el));
+// Safety fallback: if reveal doesn't fire within 2s, force-show all content.
+setTimeout(() => {
+  const seq = document.getElementById('heroSeq');
+  if (seq) seq.classList.add('ready');
+  document.querySelectorAll(revealSelector).forEach(el => el.classList.add('visible'));
+}, 2000);
 
 // ── FAQ accordion ──
 document.querySelectorAll('.faq-toggle').forEach(btn => {
