@@ -1629,6 +1629,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <input type="tel" id="phone" name="phone" placeholder="XXXXXXXXXX" required>
           </div>
         </div>
+        <div class="form-group">
+          <label for="message">Message (Optional)</label>
+          <textarea id="message" name="message" placeholder="Tell us about your goals or any questions you have..."></textarea>
+        </div>
         <div class="form-group" style="margin-bottom: 8px;">
           <div style="display: flex; align-items: flex-start; gap: 10px;">
             <input type="checkbox" id="newsletter" name="newsletter" required style="margin-top: 4px; width: auto; accent-color: var(--color-brand-primary);">
@@ -1859,6 +1863,7 @@ function showResult() {
       const phone = form.querySelector('#phone').value?.trim() || '';
       const first_name = form.querySelector('#first_name').value?.trim() || '';
       const last_name = form.querySelector('#last_name').value?.trim() || '';
+      const message = form.querySelector('#message')?.value?.trim() || '';
       const checkbox = form.querySelector('#newsletter')?.checked ? 'on' : '';
 
       const emailRe = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
@@ -1883,7 +1888,7 @@ function showResult() {
       fd.append('checkbox', checkbox);
       fd.append('organization', 'c543dd90-48c9-422e-a949-67d2b791eba7');
       fd.append('form', '481');
-      fd.append('message', '');
+      fd.append('message', message);
       fd.append('form_location', window.location.href);
 
       const urlParams = new URLSearchParams(window.location.search);
