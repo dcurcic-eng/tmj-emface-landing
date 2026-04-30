@@ -1198,6 +1198,7 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; } /* no italic in headings */
   .fade-in, .fade-left, .fade-right,
   .stagger-tight > *, .stagger-loose > *,
   .hero-seq > * { opacity: 1 !important; transform: none !important; }
+  .fade-in, .fade-left, .fade-right, .stagger-tight, .stagger-loose { opacity: 1 !important; transform: none !important; }
 }
 
 /* ── RESPONSIVE ── */
@@ -1453,7 +1454,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button class="quiz-option" data-value="yes-occasional">Several times a week, especially during stress or after sleeping</button>
           <button class="quiz-option" data-value="yes-mild">Occasionally, mild but noticeable discomfort</button>
         </div>
-        <div class4"quiz-nav"><button class="btn-back quiz-back">Back</button><button class="btn quiz-next" disabled>Next</button></div>
+        <div class="quiz-nav"><button class="btn-back quiz-back">Back</button><button class="btn quiz-next" disabled>Next</button></div>
       </div>
 
       <!-- Q3 -->
@@ -1606,43 +1607,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <form class="booking-form fade-right" onsubmit="handleFormSubmit(event)">
-        <h3>Request a consultation</h3>
+      <form class="booking-form staff-benefit-form fade-right">
+        <h3>Request a Consultation</h3>
         <div class="form-row">
           <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" required>
+            <label for="first_name">First Name*</label>
+            <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
           </div>
           <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" required>
+            <label for="last_name">Last Name*</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
           </div>
           <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" required>
+            <label for="phone">Phone*</label>
+            <input type="tel" id="phone" name="phone" placeholder="XXXXXXXXXX" required>
           </div>
         </div>
-        <div class="form-group">
-          <label for="interest">Area of Interest</label>
-          <select id="interest" name="interest">
-            <option value="">Select your condition</option>
-            <option value="tmj">TMJ Disorder / Jaw Pain</option>
-            <option value="bruxism">Teeth Grinding (Bruxism)</option>
-            <option value="jaw-fatigue">Jaw Fatigue / Limited Mobility</option>
-            <option value="not-sure">Not Sure, I'd Like an Assessment</option>
-          </select>
+        <div class="form-group" style="margin-bottom: 8px;">
+          <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <input type="checkbox" id="newsletter" name="newsletter" required style="margin-top: 4px; width: auto; accent-color: var(--color-brand-primary);">
+            <label for="newsletter" style="text-transform: none; letter-spacing: 0; font-size: 12px; font-style: italic; line-height: 1.5; color: var(--color-text-secondary);">
+              By submitting this form, you agree to receive marketing text messages,
+              alerts, and notifications from Eternal Wellness.
+              Message frequency may vary. Rates may be applied.
+              You can opt out at any time by replying STOP.
+            </label>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="message">Message (Optional)</label>
-          <textarea id="message" name="message" placeholder="Tell us about your goals or any questions you have..."></textarea>
-        </div>
-        <button type="submit" class="btn">Submit Request</button>
+        <div id="form-error" role="alert" aria-live="polite" style="display: none; color: #c0392b; font-size: 13px; margin-bottom: 12px; font-family: var(--font-body);"></div>
+        <button type="submit" class="btn btn-brown submit-btn">Submit Request</button>
       </form>
     </div>
     <div class="booking-map fade-in">
@@ -1717,4 +1716,279 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><a href="tel:2312524474">(231) 252 4474</a></li>
           <li><a href="mailto:info@eternalwellnessmedicalspa.com">info@eternalwellnessmedicalspa.com</a></li>
           <li><a href="#">400 W Front St #200<br>Traverse City, MI</a></li>
-          <li><a href="#">Mon–Thu: 8:30AM – 5PM<br>Fri: 10AM – 4PM</a><
+          <li><a href="#">Mon–Thu: 8:30AM – 5PM<br>Fri: 10AM – 4PM</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Eternal Wellness Medical Spa. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/eternal_wellness/" aria-label="Instagram" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.facebook.com/eternalwellnessmi" aria-label="Facebook" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.youtube.com/@Dr.JoelStrehl" aria-label="YouTube" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Header scroll effect ──
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── Hero entry (run immediately after paint, per motion spec) ──
+requestAnimationFrame(() => {
+  const seq = document.getElementById('heroSeq');
+  if (seq) seq.classList.add('ready');
+});
+
+// ── Scroll reveals: fade-up, fade-left/right, staggered grids ──
+// Per motion spec: triggered-once; fade+slide (y: 60); 0.6–0.8s power3.out
+const revealSelector = '.fade-in, .fade-left, .fade-right, .stagger-tight, .stagger-loose';
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll(revealSelector).forEach(el => observer.observe(el));
+// Safety fallback: if reveal doesn't fire within 2s, force-show all content.
+setTimeout(() => {
+  const seq = document.getElementById('heroSeq');
+  if (seq) seq.classList.add('ready');
+  document.querySelectorAll(revealSelector).forEach(el => el.classList.add('visible'));
+}, 2000);
+
+// ── FAQ accordion ──
+document.querySelectorAll('.faq-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// ── Quiz ──
+let currentQ = 0;
+const answers = {};
+const questions = document.querySelectorAll('.quiz-question');
+const dots = document.querySelectorAll('.quiz-progress .dot');
+const result = document.getElementById('quizResult');
+const resultText = document.getElementById('quizResultText');
+
+document.querySelectorAll('.quiz-option').forEach(opt => {
+  opt.addEventListener('click', function() {
+    this.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[currentQ] = this.dataset.value;
+    this.closest('.quiz-question').querySelector('.quiz-next').disabled = false;
+  });
+});
+
+document.querySelectorAll('.quiz-next').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (currentQ < questions.length - 1) {
+      questions[currentQ].classList.remove('active');
+      dots[currentQ].classList.remove('active');
+      dots[currentQ].classList.add('completed');
+      currentQ++;
+      questions[currentQ].classList.add('active');
+      dots[currentQ].classList.add('active');
+    } else {
+      questions[currentQ].classList.remove('active');
+      dots[currentQ].classList.remove('active');
+      dots[currentQ].classList.add('completed');
+      showResult();
+    }
+  });
+});
+
+document.querySelectorAll('.quiz-back').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (currentQ > 0) {
+      questions[currentQ].classList.remove('active');
+      dots[currentQ].classList.remove('active');
+      dots[currentQ].classList.remove('completed');
+      currentQ--;
+      questions[currentQ].classList.add('active');
+      dots[currentQ].classList.add('active');
+      dots[currentQ].classList.remove('completed');
+    }
+  });
+});
+
+function showResult() {
+  document.querySelector('.quiz-progress').style.display = 'none';
+  const concern = answers[0];
+  const severity = answers[1];
+  let text = '';
+  if (concern === 'tmj' || concern === 'bruxism') {
+    text = 'Based on your symptoms, Emface TMD therapy could provide significant relief. The HIFES and radiofrequency technology is specifically designed to address jaw muscle dysfunction, clenching, and associated pain. Our clinical team will create a personalized treatment protocol for your condition.';
+  } else {
+    text = 'Based on your symptoms, Emface TMD therapy may offer the comprehensive relief you need. Our clinical team at Eternal Wellness will evaluate your condition and recommend the optimal treatment approach.';
+  }
+  resultText.textContent = text;
+  result.classList.add('active');
+}
+
+// ── Form ──
+(function () {
+  const forms = document.querySelectorAll('.staff-benefit-form');
+
+  forms.forEach((form) => {
+    const submitBtn = form.querySelector('.submit-btn');
+    const errEl = form.querySelector('#form-error');
+
+    function showError(msg) {
+      if (!errEl) return;
+      errEl.textContent = msg;
+      errEl.style.display = msg ? 'block' : 'none';
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      showError('');
+      submitBtn.disabled = true;
+
+      const email = form.querySelector('#email').value?.trim() || '';
+      const phone = form.querySelector('#phone').value?.trim() || '';
+      const first_name = form.querySelector('#first_name').value?.trim() || '';
+      const last_name = form.querySelector('#last_name').value?.trim() || '';
+      const checkbox = form.querySelector('#newsletter')?.checked ? 'on' : '';
+
+      const emailRe = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+      if (!emailRe.test(email)) {
+        showError('Please enter a valid email address.');
+        submitBtn.disabled = false;
+        return;
+      }
+
+      const phoneRe = /^[0-9]{10}$/;
+      if (!phoneRe.test(phone)) {
+        showError('Please enter a 10-digit US phone number.');
+        submitBtn.disabled = false;
+        return;
+      }
+
+      const fd = new FormData();
+      fd.append('first_name', first_name);
+      fd.append('last_name', last_name);
+      fd.append('phone', `+1${phone}`);
+      fd.append('email', email);
+      fd.append('checkbox', checkbox);
+      fd.append('organization', 'c543dd90-48c9-422e-a949-67d2b791eba7');
+      fd.append('form', '481');
+      fd.append('message', '');
+      fd.append('form_location', window.location.href);
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const trackingMap = {
+        gclid: 'google',
+        wbraid: 'google',
+        gbraid: 'google',
+        fbclid: 'meta',
+        ttclid: 'tiktok',
+      };
+      let trackingParam = '';
+      let adSource = 'other';
+      for (const [param, source] of Object.entries(trackingMap)) {
+        const val = urlParams.get(param);
+        if (val) {
+          trackingParam = val;
+          adSource = source;
+          break;
+        }
+      }
+      fd.append('tracking_param', trackingParam);
+      fd.append('ad_source', adSource);
+
+      try {
+        const res = await fetch(
+          'https://api.aevadigital.com/api/v1/contacts/add_contact_from_form/',
+          {
+            method: 'POST',
+            body: fd,
+          }
+        );
+
+        if (!res.ok) {
+          const txt = await res.text().catch(() => res.statusText);
+          throw new Error(txt || 'Server error');
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ 'event': 'form-success' });
+
+        form.style.display = 'none';
+        const thankYou = document.createElement('div');
+        thankYou.className = 'form-success-message';
+        thankYou.style.cssText = 'text-align:center; padding:40px; font-family:var(--font-body);';
+        thankYou.innerHTML = '<h3 style="font-family:var(--font-heading); font-size:24px; color:var(--color-text-primary); margin-bottom:12px;">Thank You!</h3><p style="color:var(--color-text-secondary); font-size:14px;">Your consultation request has been received. We\'ll be in touch shortly.</p>';
+        form.parentNode.insertBefore(thankYou, form.nextSibling);
+      } catch (err) {
+        console.error(err);
+        showError('Submission failed — please try again.');
+        submitBtn.disabled = false;
+      }
+    });
+  });
+})();
+
+// ── Mobile sticky CTA ──
+const mobileCta = document.querySelector('.mobile-sticky-cta');
+const heroSection = document.querySelector('.hero');
+if (mobileCta && heroSection) {
+  window.addEventListener('scroll', () => {
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    mobileCta.classList.toggle('visible', heroBottom < 0);
+  }, { passive: true });
+}
+
+// ── Smooth scroll for nav ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href.length < 2) return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ── Count-up animation for stats (power3.out-style ease) ──
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const numbers = entry.target.querySelectorAll('.number[data-target]');
+      numbers.forEach((el, i) => {
+        const target = parseInt(el.dataset.target);
+        const duration = 1000;
+        const start = performance.now() + i * 80; // match 0.08s tight stagger
+        function animate(now) {
+          if (now < start) { requestAnimationFrame(animate); return; }
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(eased * target);
+          el.textContent = current + '%';
+          if (progress < 1) requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+      });
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+const statsSection = document.querySelector('.feature-stats');
+if (statsSection) statsObserver.observe(statsSection);
+</script>
+
+</body>
+</html>
